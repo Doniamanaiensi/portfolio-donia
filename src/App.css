@@ -1,105 +1,192 @@
+/* Import de la police manuscrite pour le nom */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+.navbar .logo {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #3341dd;
+}
+
+/* Polices et structure générale */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  color: #222;
+  scroll-behavior: smooth;
+  
+}
+
+.App {
+  padding-top: 80px;
+}
+
 /* Barre de navigation */
 .navbar {
   position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: #007acc;
-  padding: 15px 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #14213d;
+  background-color: 	#fefefe;
+  padding: 12px 30px;
+  border-radius: 40px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
 }
 
 .navbar ul {
-  list-style: none;
   display: flex;
-  justify-content: center;
+  gap: 20px;
+  list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.navbar ul li {
-  margin: 0 20px;
-}
-
 .navbar ul li a {
-  color: white;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: color 0.3s ease;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
 }
 
 .navbar ul li a:hover {
-  color: #ffcc00;
+  color: #007bff;
 }
 
-/* Pour que le contenu ne soit pas caché sous la navbar fixe */
-.App {
-  font-family: Arial, sans-serif;
-  max-width: 900px;
-  margin: 80px auto 40px auto; /* marge en haut pour navbar */
-  padding: 0 20px;
-  color: #333;
+/* Sections générales */
+.section {
+  padding: 100px 10%;
 }
 
-/* Sections */
-section {
-  margin-top: 60px;
+/* Section Home */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-h1, h2 {
-  color: #007acc;
+.header-text {
+  max-width: 50%;
 }
 
-/* Formulaire */
-.contact-form {
+.header-text h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #14213d;
+}
+
+.header-text p {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.header-text em {
+  color: #555;
+  font-style: italic;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Boutons */
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #007bff;
+  padding: 10px 20px;
+  border: 2px solid #007bff;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none; /* ✅ Supprime la ligne */
+  display: inline-block; /* ✅ Permet de garder le style bouton */
+}
+
+
+
+/* Image à droite */
+.header-image img {
+  max-width: 300px;
+  border-radius: 20px;
+}
+
+/* Skills, Projects, About... */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+/* Formulaire de contact */
+form {
   display: flex;
   flex-direction: column;
+  gap: 15px;
   max-width: 500px;
-  margin-bottom: 20px;
 }
 
-.contact-form label {
-  margin-bottom: 15px;
-  font-weight: 600;
-}
-
-.contact-form input,
-.contact-form textarea {
+form input,
+form textarea {
   padding: 10px;
-  font-size: 1rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
 }
 
-.contact-form button {
-  width: 150px;
-  padding: 10px;
-  background-color: #007acc;
+form button {
+  align-self: flex-start;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.social-icons a {
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+.btn-outline:hover {
+  background-color: #007bff;
   color: white;
-  font-weight: 700;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.contact-form button:hover {
-  background-color: #005fa3;
-}
-
-.success-message {
-  color: green;
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-
-/* Footer */
-.footer {
-  text-align: center;
-  margin-top: 40px;
-  padding: 20px 0;
-  color: #777;
-  font-size: 0.9rem;
+  text-decoration: none;
 }

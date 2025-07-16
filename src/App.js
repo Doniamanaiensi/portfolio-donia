@@ -1,129 +1,99 @@
-import { useState } from 'react';
+import React from 'react';
 import './App.css';
+import doniaImage from './assets/cvv.jpg';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
+
+
 
 function App() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
-
-  // Gérer le changement dans le formulaire
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  }
-
-  // Gérer la soumission
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    if (!formData.name || !formData.email || !formData.message) {
-      alert('Merci de remplir tous les champs.');
-      return;
-    }
-
-    // Pour simplifier, on utilise mailto: pour envoyer un email
-    const mailtoLink = `mailto:donia.manai@example.com?subject=Message de ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(formData.message + '\n\nContact: ' + formData.email)}`;
-    window.location.href = mailtoLink;
-    setSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
-  }
-
   return (
-    <>
-      {/* Navigation */}
+    <div className="App">
+      {/* Barre de navigation */}
       <nav className="navbar">
+        <h3 className="logo">Donia Manai</h3>
         <ul>
-          <li><a href="#home">Accueil</a></li>
-          <li><a href="#about">À propos</a></li>
-          <li><a href="#projects">Projets</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#resume">Resume</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
+        <div className="social-icons">
+  <a href="https://www.linkedin.com/in/donia-manai-a48a99105/" target="_blank" rel="noopener noreferrer">
+    <FaLinkedin size={24} color="#0077b5" />
+  </a>
+  <a href="https://github.com/Doniamanaiensi" target="_blank" rel="noopener noreferrer">
+    <FaGithub size={24} color="#333" />
+  </a>
+</div>
       </nav>
 
-      <div className="App">
-        {/* Accueil */}
-        <header id="home" className="header">
-          <h1>Donia Manai</h1>
-          <p>Data Scientist passionnée par l’IA et les projets innovants.</p>
-        </header>
+      {/* Section Home */}
+      <section id="home" className="section header">
+        <div className="header-text">
+          <h1>Hi there! I'm Donia</h1>
+          <p>Data Scientist passionate about AI and Computer Vision.</p>
+          <em>Turning data into smart solutions for the future.</em>
+          <div className="header-buttons">
+            <button className="btn-primary">View My Work</button>
+           <a href="#contact" className="btn-outline">Let's Connect</a>
+          </div>
+        </div>
+        <div className="header-image">
+         <img src={doniaImage} alt="Donia" />
+        </div>
+      </section>
 
-        {/* À propos */}
-        <section id="about" className="about">
-          <h2>À propos</h2>
-          <p>
-            Je suis diplômée en Data Science et j’aime utiliser l’intelligence artificielle pour résoudre des problèmes concrets. Je m’intéresse particulièrement à l’analyse d’images médicales, la vision par ordinateur, et les projets à impact social.
-          </p>
-        </section>
+      {/* Section About */}
+      <section id="about" className="section">
+        <h2>About Me</h2>
+        <p>I am a Data Scientist graduated from ENSI with a strong background in AI, ML, and computer vision.</p>
+      </section>
 
-        {/* Projets */}
-        <section id="projects" className="projects">
-          <h2>Mes Projets</h2>
-          <ul>
-            <li>
-              <strong>Surveillance ferroviaire avec YOLOv8</strong> – Détection des anomalies dans les images ferroviaires.
-            </li>
-            <li>
-              <strong>Détection du cancer avec l’IA</strong> – Projet personnel sur l’annotation d’images médicales et entraînement d’un modèle.
-            </li>
-            <li>
-              <strong>Dashboard Power BI</strong> – Analyse visuelle de données RH dans un environnement interactif.
-            </li>
-          </ul>
-        </section>
+      {/* Section Skills */}
+      <section id="skills" className="section">
+        <h2>Skills</h2>
+        <ul>
+          <li>Python, Java, C++</li>
+          <li>React.js, HTML/CSS</li>
+          <li>TensorFlow, PyTorch, YOLO</li>
+          <li>PostgreSQL, MySQL</li>
+        </ul>
+      </section>
 
-        {/* Contact */}
-        <section id="contact" className="contact">
-          <h2>Contact</h2>
-          {submitted && <p className="success-message">Merci pour votre message !</p>}
+      {/* Section Projects */}
+      <section id="projects" className="section">
+        <h2>Projects</h2>
+        <p>Coming soon: project cards with images and links.</p>
+      </section>
 
-          <form onSubmit={handleSubmit} className="contact-form">
-            <label>
-              Nom complet :
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Votre nom"
-                required
-              />
-            </label>
+      {/* Section Experience */}
+      <section id="experience" className="section">
+        <h2>Experience</h2>
+        <p>Several internships in web development and data science, including a final project on multitask learning for railway monitoring.</p>
+      </section>
 
-            <label>
-              Email :
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Votre email"
-                required
-              />
-            </label>
+      {/* Section Resume */}
+      <section id="resume" className="section">
+        <h2>Resume</h2>
+        <a href="/Donia_Manai_CV.pdf" target="_blank" rel="noopener noreferrer" className="btn-primary">
+          Download My CV
+        </a>
+      </section>
 
-            <label>
-              Message :
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Votre message"
-                required
-                rows="5"
-              />
-            </label>
-
-            <button type="submit">Envoyer</button>
-          </form>
-
-          <p>Ou contactez-moi directement : 📧 donia.manai@example.com</p>
-        </section>
-
-        {/* Footer */}
-        <footer className="footer">
-          <p>&copy; 2025 Donia Manai. Tous droits réservés.</p>
-        </footer>
-      </div>
-    </>
+      {/* Section Contact */}
+      <section id="contact" className="section">
+        <h2>Contact</h2>
+        <form>
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit" className="btn-primary">Send Message</button>
+        </form>
+      </section>
+    </div>
   );
 }
 
